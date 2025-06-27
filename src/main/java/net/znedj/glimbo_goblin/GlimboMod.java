@@ -2,6 +2,7 @@ package net.znedj.glimbo_goblin;
 
 import com.mojang.logging.LogUtils;
 import net.minecraft.client.Minecraft;
+import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
@@ -10,29 +11,31 @@ import net.minecraftforge.event.server.ServerStartingEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.config.ModConfig;
+
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
-import net.minecraftforge.registries.ForgeRegistries;
+
+import net.znedj.glimbo_goblin.item.ModItems;
 import org.slf4j.Logger;
 
-// The value here should match an entry in the META-INF/mods.toml file
 @Mod(GlimboMod.MOD_ID)
 public class GlimboMod
 {
-    // Define mod id in a common place for everything to reference
+
     public static final String MOD_ID = "glimbo_goblin";
-    // Directly reference a slf4j logger
+
     private static final Logger LOGGER = LogUtils.getLogger();
     public GlimboMod(FMLJavaModLoadingContext context)
     {
         IEventBus modEventBus = context.getModEventBus();
+        ModItems.register(modEventBus);
 
-        // Register the commonSetup method for modloading
+
+
         modEventBus.addListener(this::commonSetup);
 
-        // Register ourselves for server and other game events we are interested in
+
         MinecraftForge.EVENT_BUS.register(this);
 
         // Register the item to a creative tab
@@ -47,10 +50,14 @@ public class GlimboMod
 
     }
 
-    // Add the example block item to the building blocks tab
+
     private void addCreative(BuildCreativeModeTabContentsEvent event)
     {
-
+        if (event.getTabKey() == CreativeModeTabs.INGREDIENTS)
+        {
+            event.accept(ModItems.GREENIUM);
+            event.accept(ModItems.GOBLIN_EYE);
+        }
     }
 
     // You can use SubscribeEvent and let the Event Bus discover methods to call
