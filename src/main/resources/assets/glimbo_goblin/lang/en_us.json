@@ -1,4 +1,7 @@
 {
   "item.glimbo_goblin.greenium": "Greenium",
-  "item.glimbo_goblin.goblin_eye": "Goblin Eye"
+  "item.glimbo_goblin.goblin_eye": "Goblin Eye",
+  "item.glimbo_goblin.greenium_throwable": "Splash Greenium",
+  "effect.glimbo_goblin.green_shake": "Green Shake",
+  "subtitles.item.glimbo_goblin.greenium.drink": "Gulping Greenium"
 }
