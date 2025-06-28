@@ -15,21 +15,18 @@ public class ModItems {
     public static final DeferredRegister<Item> ITEMS =
             DeferredRegister.create(ForgeRegistries.ITEMS, GlimboMod.MOD_ID);
 
-    // Regular Items
+
     public static final RegistryObject<Item> GOBLIN_EYE = ITEMS.register("goblin_eye",
-            () -> new Item(new Item.Properties()));
+            () -> new Item(new Item.Properties().stacksTo(16)));
 
     // Drinkable Greenium
     public static final RegistryObject<Item> GREENIUM = ITEMS.register("greenium",
-            () -> new Item(new Item.Properties()
-                    .craftRemainder(Items.GLASS_BOTTLE)
-                    .stacksTo(16)
-                    .food(new FoodProperties.Builder()
-                            .alwaysEat()
+            () -> new Item(new Item.Properties().craftRemainder(Items.GLASS_BOTTLE).stacksTo(16)
+                    .food(new FoodProperties.Builder().alwaysEat()
                             .effect(() -> new MobEffectInstance(GlimboMod.GREEN_SHAKE.get(), 1200), 1.0F)
                             .build())));
 
-    // Throwable Greenium
+
     public static final RegistryObject<Item> GREENIUM_THROWABLE = ITEMS.register("greenium_throwable",
             () -> new ThrowablePotionItem(new Item.Properties().stacksTo(16)));
 

@@ -11,7 +11,6 @@ public class ThrowablePotionItem extends ThrowablePotionItem
     {
         super(properties);
     }
-
     @Override protected void onImpact(EntityHitResult result)
     {
         if (!this.level.isClientSide && result.getEntity() instanceof LivingEntity target)

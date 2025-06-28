@@ -44,7 +44,7 @@ public class GlimboMod {
     public GlimboMod(FMLJavaModLoadingContext context) {
         IEventBus modEventBus = context.getModEventBus();
 
-        // Register in order
+
         EFFECTS.register(modEventBus);
         POTIONS.register(modEventBus);
         ModItems.register(modEventBus);
