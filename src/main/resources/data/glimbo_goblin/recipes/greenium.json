@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients":
+  [
+    { "item": "minecraft:glass_bottle" },
+    { "item": "glimbo_goblin:goblin_eye", "count": 9 }
+  ],
+  "result":
+  {
+    "item": "glimbo_goblin:geenium",
+    "count": 1
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:brewing_stand",
+  "ingredient": {
+    "item": "minecraft:gunpowder"
+  },
+  "input": {
+    "item": "minecraft:potion{Potion:'minecraft:poison'}"
+  },
+  "result": "minecraft:splash_potion{Potion:'minecraft:poison'}"
+}
